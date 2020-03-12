@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-    Spinner tank,mage,marksman,rogue,support;
+    Spinner tank,mage,marksman,rogue,support,monster;
     Spinner HeroClass;
     String tankstrng,magestrng,marksstring,roguestrng,supportstrng;
     String hroclassstrng;
@@ -114,6 +114,14 @@ public class MainActivity extends AppCompatActivity {
                             mage.setVisibility(View.GONE);
                         }
                         else if (hroclassstrng.equals("support")) {
+                            marksman.setVisibility(View.GONE);
+                            support.setVisibility(View.VISIBLE);
+                            tank.setVisibility(View.GONE);
+                            rogue.setVisibility(View.GONE);
+                            mage.setVisibility(View.GONE);
+                        }
+
+                        else if (hroclassstrng.equals("monster")) {
                             marksman.setVisibility(View.GONE);
                             support.setVisibility(View.VISIBLE);
                             tank.setVisibility(View.GONE);
@@ -263,6 +271,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
     );
+
+
+
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -283,6 +294,7 @@ public class MainActivity extends AppCompatActivity {
                         i.putExtra("priest",magestrng);
                         i.putExtra("assassin",roguestrng);
                         i.putExtra("enchanter",supportstrng);
+                        i.putExtra("monster",hroclassstrng);
 
                         startActivity(i);
 

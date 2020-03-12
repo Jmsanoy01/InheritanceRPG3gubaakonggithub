@@ -119,6 +119,21 @@ public class Hero extends Characters {
     public double baseHPwSTR(){
         return super.getBaseHP() + (20*baseSTR);
     }
+    public double healthwlvl(){
+        return super.getBaseHP()*super.getLvl();
+    }
+    public double manawlvl(){
+        return super.getBaseMP()*super.getLvl();
+    }
+    public double pAtkwlvl(){return super.getpAtk()*super.getLvl();
+    }
+    public double mAtkwlvl(){return super.getmAtk()*super.getLvl();
+    }
+    public double pDefwlvl(){return super.getpDef()*super.getLvl();
+    }
+    public double mDefwlvl(){return super.getmDef()*super.getLvl();
+    }
+
     public double baseMPwINT(){return super.getBaseMP() + (20+baseINT);}
     public double strwithGrowth(){return baseSTR+ (strGrowth*level);}
     public double intwithGrowth(){return baseINT+ (intGrowth*level);}

@@ -40,17 +40,21 @@ public class Main2Activity extends AppCompatActivity {
 
 
         String lebel = getIntent().getStringExtra("Level");
+        
         String barbsub = getIntent().getStringExtra("barbarian");
         String mrksmn=getIntent().getStringExtra("archer");
         String maje=getIntent().getStringExtra("priest");
         String roug=getIntent().getStringExtra("assassin");
         String suport=getIntent().getStringExtra("enchanter");
+        String mnster=getIntent().getStringExtra("monster");
 
         lvl=findViewById(R.id.lvl);
         lvl.setText(lebel);
 
+
+
         if(barbsub.equals("barbarian")){
-            Hero barbarian = new Hero(01, 100, 0, 90, 0, 90, 0,
+            Barbarian barbarian = new Barbarian(01, 100, 0, 90, 0, 90, 0,
                     "tank", 1, 0, 50, 0, 1, 1, 1, 4);
 
             barbarian.getBaseHP();
@@ -132,7 +136,7 @@ public class Main2Activity extends AppCompatActivity {
 
         else if (mrksmn.equals("rifleman")){
 
-            Assassin riflemn = new Assassin(01, 100, 0, 70, 0, 45, 0,
+            Rifleman riflemn = new Rifleman(01, 100, 0, 70, 0, 45, 0,
                     "marksman", 1, 0, 50, 0, 1, 1, 1, 4);
 
             riflemn.getBaseHP();
@@ -264,7 +268,6 @@ public class Main2Activity extends AppCompatActivity {
         }
 
         if (suport.equals("enchanter")){
-
             Enchanter ench = new Enchanter(01, 80, 100, 20, 40, 15, 50,
                     "support", 1, 0, 50, 0, 1, 1, 1, 4);
 
@@ -289,8 +292,8 @@ public class Main2Activity extends AppCompatActivity {
             pDef.setText(String.valueOf(ench.getpDef() + "Physical def"));
             mDef.setText(String.valueOf(ench.getmDef() + "Magical def"));
         }
-        if (suport.equals("enchanter")){
 
+       else if (suport.equals("enchanter")){
             Healer heal = new Healer(01, 80, 100, 15, 90, 15, 100,
                     "support", 1, 0, 50, 0, 1, 1, 1, 4);
 
@@ -316,6 +319,10 @@ public class Main2Activity extends AppCompatActivity {
             mDef.setText(String.valueOf(heal.getmDef() + "Magical def"));
         }
 
+        if (mnster.equals("monster")) {
 
+            Monsters mnstr = new Monsters(1,50,40,30,70,20,14);
+
+        }
     }
 }

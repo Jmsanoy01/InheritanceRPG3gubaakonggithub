@@ -125,10 +125,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rifleman" />
 
-
-
-
-
     <EditText
         android:id="@+id/lvl"
         android:layout_width="83dp"

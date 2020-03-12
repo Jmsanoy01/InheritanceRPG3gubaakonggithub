@@ -2,12 +2,13 @@ package sanoy.mcm.edu.ph.example.inheritancerpg3;
 
 public class Characters {
     private int id;
-    private double baseHP, baseMP, pAtk, mAtk, pDef, mDef;
+    private double lvl, baseHP, baseMP, pAtk, mAtk, pDef, mDef;
     private boolean attackable = true;
 
 
     public Characters(int id, double baseHP, double baseMP, double pAtk, double mAtk, double pDef, double mDef) {
         this.id = id;
+        this.lvl=lvl;
         this.baseHP = baseHP;
         this.baseMP = baseMP;
         this.pAtk = pAtk;
@@ -15,8 +16,14 @@ public class Characters {
         this.pDef = pDef;
         this.mDef = mDef;
     }
+
+
+
     public void setId(int id){
         this.id=id;
+    }
+    public void setId(double lvl){
+        this.lvl=lvl;
     }
     public void setBaseHP(double baseHP){
         this.baseHP=baseHP;
@@ -42,6 +49,7 @@ public class Characters {
     public int getId(){
         return id;
     }
+    public double getLvl(){return lvl;}
     public double getBaseHP() {
         return baseHP;
     }
