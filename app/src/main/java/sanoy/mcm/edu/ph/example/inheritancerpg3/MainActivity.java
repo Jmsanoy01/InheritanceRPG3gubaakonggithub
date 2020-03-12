@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         Healthpoints=findViewById(R.id.Hp);
         Manapoints=findViewById(R.id.Mp);
 
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         riflemanimage.setVisibility(View.GONE);
         barbarianimage.setVisibility(View.GONE);
         knightimage.setVisibility(View.GONE);
+
 
         HeroClass.setOnItemSelectedListener(
 
@@ -127,12 +130,12 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
+
         tank.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         tankstrng=tank.getSelectedItem().toString();
-
 
                         if (tankstrng.equals("barbarian")) {
                             archerimage.setVisibility(View.GONE);
@@ -143,11 +146,13 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                         else if (tankstrng.equals("knight")) {
+
                             archerimage.setVisibility(View.GONE);
                             riflemanimage.setVisibility(View.GONE);
                             barbarianimage.setVisibility(View.GONE);
                             knightimage.setVisibility(View.VISIBLE);
                         }
+
                     }
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -163,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         if (marksstring.equals("archer")) {
+
                             archerimage.setVisibility(View.VISIBLE);
                             riflemanimage.setVisibility(View.GONE);
                             barbarianimage.setVisibility(View.GONE);
@@ -236,7 +242,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     supportstrng=support.getSelectedItem().toString();
-                    if (roguestrng.equals("assassin")) {
+
+                    if (supportstrng.equals("assassin")) {
                         archerimage.setVisibility(View.VISIBLE);
                         riflemanimage.setVisibility(View.GONE);
                         barbarianimage.setVisibility(View.GONE);
@@ -256,15 +263,30 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
     );
-
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent i = new Intent (MainActivity.this,Main2Activity.class);
                         String lvlstring =String.valueOf(lvl.getText());
+                        String tnk=tankstrng;
+                        String mrks=marksman.getSelectedItem().toString();
+                        String mige = mage.getSelectedItem().toString();
+                        String roug = rogue.getSelectedItem().toString();
+                        String sprt = support.getSelectedItem().toString();
+
+
                         i.putExtra("Level",lvlstring);
+
+                        i.putExtra("barbarian", tankstrng);
+                        i.putExtra("archer", marksstring);
+                        i.putExtra("priest",magestrng);
+                        i.putExtra("assassin",roguestrng);
+                        i.putExtra("enchanter",supportstrng);
+
                         startActivity(i);
+
+
                     }
                 }
         );
